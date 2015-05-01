@@ -21,8 +21,8 @@ if (_uid call isAdmin) then
 
 	_panelOptions = ["Access Gun Store",
 					"Access General Store",
+					"Access ATM Interface",
 					"Access Vehicle Store",
-					"Access ATM Dialog",
 					"Access Respawn Dialog",
 					"Access Proving Grounds",
 					"Show Server FPS"

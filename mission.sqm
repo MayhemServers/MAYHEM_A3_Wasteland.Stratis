@@ -1986,7 +1986,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=251;
+		items=257;
 		class Item0
 		{
 			position[]={4484.2783,113.72083,6777.0884};
@@ -4812,10 +4812,100 @@ class Mission
 			init="[this] call A3W_fnc_setupMissionATM";
 			description="DO NOT MODIFY IN EDITOR";
 		};
+		class Item251
+		{
+			position[]={4380,0,3819};
+			azimut=177;
+			special="NONE";
+			id=406;
+			side="EMPTY";
+			vehicle="O_Truck_03_ammo_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.60000002;
+			text="Service_Truck_1";
+			init="this call A3W_fnc_setupResupplyTruck";
+			description="Service";
+		};
+		class Item252
+		{
+			position[]={4644,0,5883};
+			azimut=269;
+			special="NONE";
+			id=407;
+			side="EMPTY";
+			vehicle="O_Truck_03_ammo_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.60000002;
+			text="Service_Truck_2";
+			init="this call A3W_fnc_setupResupplyTruck";
+			description="Service";
+		};
+		class Item253
+		{
+			position[]={1689,0,5035};
+			azimut=283;
+			special="NONE";
+			id=408;
+			side="EMPTY";
+			vehicle="O_Truck_03_ammo_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.60000002;
+			text="Service_Truck_3";
+			init="this call A3W_fnc_setupResupplyTruck";
+			description="Service";
+		};		
+		class Item254
+		{
+			position[]={4380,0,3819};
+			azimut=177;
+			special="NONE";
+			id=407;
+			side="EMPTY";
+			vehicle="O_Truck_03_ammo_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.60000002;
+			text="Service_Truck_1";
+			init="this call A3W_fnc_setupResupplyTruck";
+			description="Service";
+		};
+		class Item255
+		{
+			position[]={1867,0,5568};
+			azimut=192;
+			special="NONE";
+			id=408;
+			side="EMPTY";
+			vehicle="B_Truck_01_box_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.60000002;
+			text="Sell_Truck_1";
+			init="this call A3W_fnc_setupSellTruck";
+			description="Sell Vehicle";
+		};		
+		class Item256
+		{
+			position[]={2604,0,620};
+			azimut=315;
+			special="NONE";
+			id=409;
+			side="EMPTY";
+			vehicle="B_Truck_01_box_F";
+			leader=1;
+			lock="LOCKED";
+			skill=0.60000002;
+			text="Sell_Truck_2";
+			init="this call A3W_fnc_setupSellTruck";
+			description="Sell Vehicle";
+		};				
 	};
 	class Markers
 	{
-		items=151;
+		items=156;
 		class Item0
 		{
 			position[]={4339.3457,226.45149,3824.2236};
@@ -5977,6 +6067,46 @@ class Mission
 			type="Empty";
 			colorName="ColorCIV";
 		};
+		class Item151
+		{
+			position[]={4380,0,3819};
+			name="Service_Truck_1";
+			text="Service_Truck_1";
+			type="Empty";
+			colorName="ColorYellow";		
+		};
+		class Item152
+		{
+			position[]={4644,0,5883};
+			name="Service_Truck_2";
+			text="Service_Truck_2";
+			type="Empty";
+			colorName="ColorYellow";		
+		};		
+		class Item153
+		{
+			position[]={1689,0,5035};
+			name="Service_Truck_3";
+			text="Service_Truck_3";
+			type="Empty";
+			colorName="ColorYellow";		
+		};		
+		class Item154
+		{
+			position[]={1867,0,5568};
+			name="Sell_Truck_1";
+			text="Sell_Truck_1";
+			type="Empty";
+			colorName="ColorGreen";		
+		};
+		class Item155
+		{
+			position[]={2604,0,620};
+			name="Sell_Truck_2";
+			text="Sell_Truck_2";
+			type="Empty";
+			colorName="ColorGreen";		
+		};		
 	};
 };
 class Intro

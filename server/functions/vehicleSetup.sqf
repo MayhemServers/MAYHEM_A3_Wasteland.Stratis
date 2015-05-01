@@ -13,6 +13,18 @@ _vehicle = _this select 0;
 _class = typeOf _vehicle;
 
 _vehicle setVariable [call vChecksum, true];
+if (vehicleThermalsOn) then
+{
+	_vehicle disableTIEquipment false;
+}
+else
+{
+	if !(_vehicle isKindOf "UAV_02_base_F") then
+	{
+		_vehicle disableTIEquipment true;
+	};
+};
+
 
 clearMagazineCargoGlobal _vehicle;
 clearWeaponCargoGlobal _vehicle;

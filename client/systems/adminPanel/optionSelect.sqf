@@ -37,13 +37,19 @@ if (_uid call isAdmin) then
 					closeDialog 0;
 					execVM "client\systems\adminPanel\vehicleManagement.sqf";
 				};
-				case 2: //Tags
-				{
-					execVM "client\systems\adminPanel\playerTags.sqf";
-				};
-				case 3: //Teleport
-				{
+				case 2: //Spectator Cam
+			    {
 					closeDialog 0;
+					if (isnil {RscSpectator_camera}) then {RscSpectator_allowFreeCam = true; cutrsc ['RscSpectator','plain'];if (!isNil "notifyAdminMenu") then { ["SpectatorCam", "used"] call notifyAdminMenu };} else {cuttext ['','plain']};
+			    };
+			    case 3: //Tags
+			    {
+					execVM "client\systems\adminPanel\playerTags.sqf";
+					if (!isNil "notifyAdminMenu") then { ["PlayerTag","used"] call notifyAdminMenu };
+			    };
+			    case 4: //Teleport
+			    {
+	                closeDialog 0;
 					["A3W_teleport", "onMapSingleClick",
 					{
 						vehicle player setPos _pos;
@@ -52,27 +58,37 @@ if (_uid call isAdmin) then
 						true
 					}] call BIS_fnc_addStackedEventHandler;
 					hint "Click on map to teleport";
-				};
-				case 4: //Money
+			    };
+				case 5: //Teleport player to me
 				{
-					_money = 5000;
+					closeDialog 0;
+					execVM "client\systems\adminPanel\tptome.sqf";
+				};
+				case 6: //Teleport me to player
+				{
+					closeDialog 0;
+					execVM "client\systems\adminPanel\tpmeto.sqf";
+				};
+	            case 7: //Money
+			    {
+					_money = 50000;
 					player setVariable ["cmoney", (player getVariable ["cmoney",0]) + _money, true];
 					if (!isNil "notifyAdminMenu") then { ["money", _money] call notifyAdminMenu };
-				};
-				case 5: //Debug Menu
-				{
-					closeDialog 0;
-					execVM "client\systems\adminPanel\loadDebugMenu.sqf";
-				};
-				case 6: //Object search menu
-				{
-					closeDialog 0;
-					execVM "client\systems\adminPanel\loadObjectSearch.sqf";
-				};
-				case 7: // toggle God mode
-				{
-					execVM "client\systems\adminPanel\toggleGodMode.sqf";
-				};
+			    };
+	            case 8: //Debug Menu
+			    {
+	            	closeDialog 0;
+	                execVM "client\systems\adminPanel\loadDebugMenu.sqf";
+			    };
+				case 9: //Object search menu
+			    {
+	            	closeDialog 0;
+	                execVM "client\systems\adminPanel\loadObjectSearch.sqf";
+			    };
+			    case 10: // toggle God mode
+			    {
+			    	execVM "client\systems\adminPanel\toggleGodMode.sqf";
+			    };
 			};
 		};
 		case (!isNull _displayDebug): //Debug panel
@@ -91,15 +107,15 @@ if (_uid call isAdmin) then
 					closeDialog 0;
 					[] call loadGeneralStore;
 				};
-				case 2: //Access Vehicle Store
+				case 2: //Access ATM Interface
 				{
 					closeDialog 0;
-					[] call loadVehicleStore;
+					call mf_items_atm_access;
 				};
 				case 3: //Access ATM Dialog
 				{
 					closeDialog 0;
-					call mf_items_atm_access;
+					[] call loadVehicleStore;
 				};
 				case 4: //Access Respawn Dialog
 				{

@@ -112,7 +112,15 @@ forEach
 	"A3W_atmEditorPlacedOnly",
 	"A3W_atmMapIcons",
 	"A3W_atmRemoveIfDisabled",
-	"A3W_uavControl"
+	"A3W_extDB_PlayerSave_ServerID",
+	"A3W_extension",
+	"A3W_vehicleThermals",
+	"A3W_firstPersonCamOnFoot",
+	"A3W_firstPersonCamNotDriver",
+	"A3W_resupplyCostPR",
+	"A3W_territoryAllowed",
+	"A3W_uavControl",
+	"A3W_townSpawnCooldown"
 ];
 
 ["A3W_join", "onPlayerConnected", { [_id, _uid, _name] spawn fn_onPlayerConnected }] call BIS_fnc_addStackedEventHandler;
@@ -125,6 +133,7 @@ _staticWeaponSavingOn = ["A3W_staticWeaponSaving"] call isConfigOn;
 _warchestSavingOn = ["A3W_warchestSaving"] call isConfigOn;
 _warchestMoneySavingOn = ["A3W_warchestMoneySaving"] call isConfigOn;
 _beaconSavingOn = ["A3W_spawnBeaconSaving"] call isConfigOn;
+vehicleThermalsOn = ["A3W_vehicleThermals"] call isConfigOn;
 
 _purchasedVehicleSavingOn = ["A3W_purchasedVehicleSaving"] call isConfigOn;
 _missionVehicleSavingOn = ["A3W_missionVehicleSaving"] call isConfigOn;
@@ -323,7 +332,7 @@ if (["A3W_serverSpawning"] call isConfigOn) then
 		call compile preprocessFileLineNumbers "server\functions\boatSpawning.sqf";
 	};
 
-	if (["A3W_baseBuilding"] call isConfigOn) then
+	if (["A3W_baseBuilding"] call isConfigOn || ["A3W_essentialsSpawning"] call isConfigOn) then
 	{
 		call compile preprocessFileLineNumbers "server\functions\objectsSpawning.sqf";
 	};

@@ -75,6 +75,14 @@ waterVehicles =
 	"C_Boat_Civil_01_rescue_F"
 ];
 
+//Essential List - Random Spawns.
+essentialsList =
+[
+	"B_supplyCrate_F",
+	"Land_Sacks_goods_F",
+	"Land_BarrelWater_F"
+];
+
 //Object List - Random Spawns.
 objectList =
 [
@@ -111,7 +119,9 @@ objectList =
 	"Land_HBarrierWall6_F",
 	"Land_MetalBarrel_F",
 	"Land_Mil_ConcreteWall_F",
-//	"Land_Mil_WallBig_4m_F",
+	"Land_Mil_WallBig_4m_F",
+	"Land_Mil_WallBig_4m_F",
+	"Land_Mil_WallBig_4m_F",
 	"Land_Pipes_large_F",
 	"Land_RampConcrete_F",
 	"Land_RampConcreteHigh_F",

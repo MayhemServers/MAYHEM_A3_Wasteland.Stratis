@@ -18,6 +18,12 @@ A3W_globalVoiceMaxWarns = 5;       // Number of global voice warnings after whic
 A3W_antiHackMinRecoil = 1.0;       // Mininum recoil coefficient enforced by the antihack (recommended values: default = 1.0, TMR Mod = 0.5, VTS Weapon Resting = 0.25) (minimum: 0.02)
 A3W_spawnBeaconCooldown = 5*60;    // Number of seconds to wait between each use of an individual spawn beacon (0 = disabled)
 A3W_spawnBeaconSpawnHeight = 1500; // Altitude in meters at which players will spawn when using spawn beacons (0 = ground/sea)
+A3W_maxSpawnBeacons = 5;		   // Maxmimum number of spawn beacons (0 = disabled)
+A3W_townSpawnCooldown = 5*60;    // Number of seconds to wait between each use of a spawn on friends in towns (0 = disabled)
+A3W_vehicleThermals = 0;	   // Allow vehicles to use thermals (0 = disabled)
+A3W_resupplyCostPR = 4;		   // Determine resupply cost by vehicle store cost / A3W_resupplyCostPR. (4 = default, %25 percent)
+A3W_firstPersonCamOnFoot = 0;	   // Lock infantry to first person view
+A3W_firstPersonCamNotDriver = 0;   // Lock all vehicle seating positions besides driver to first person view
 A3W_uavControl = "group";          // Restrict connection to UAVs based on ownership ("owner", "group", "side")
 
 // Store settings
@@ -41,7 +47,7 @@ A3W_atmMapIcons = 1;               // Draw small icons on the map that indicate 
 A3W_atmRemoveIfDisabled = 1;       // Remove all ATMs from map if A3W_atmEnabled is set to 0 (0 = no, 1 = yes)
 
 // Persistence settings
-A3W_savingMethod = "profile";      // Method used for saving data ("profile", "iniDB", "extDB")
+A3W_savingMethod = "extDB";      // Method used for saving data ("profile", "iniDB", "extDB")
 A3W_playerSaving = 1;              // Save player data like position, health, inventory, etc. (0 = no, 1 = yes)
 A3W_moneySaving = 1;               // If playerSaving = 1, save player money amount (0 = no, 1 = yes)
 A3W_combatAbortDelay = 60;         // If playerSaving = 1, delay in seconds for which to disable abort and respawn buttons after firing or being shot (0 = none)
@@ -79,6 +85,8 @@ A3W_heliSpawning = 1;              // If serverSpawning = 1, spawn helicopters i
 A3W_planeSpawning = 1;             // If serverSpawning = 1, spawn planes at some airfields (0 = no, 1 = yes)
 A3W_boxSpawning = 0;               // If serverSpawning = 1, spawn weapon crates in 50% towns (0 = no, 1 = yes)
 A3W_baseBuilding = 1;              // If serverSpawning = 1, spawn base parts in towns (0 = no, 1 = yes)
+A3W_essentialsSpawning = 1;			// If serverSpawning = 1, spawn essential items (food, water and ammo crates) in towns (0 = no, 1 = yes. If A3W_baseBuilding = 1, then essentialsSpawning = 1;)
+
 
 // Loot settings
 A3W_buildingLootWeapons = 0;       // Spawn weapon loot in all buildings (0 = no, 1 = yes)
@@ -93,15 +101,21 @@ A3W_payrollInterval = 30*60;       // Delay in seconds between each payroll
 A3W_payrollAmount = 100;           // Amount of money rewarded per territory on each payroll
 
 // Mission settings
-A3W_serverMissions = 1;            // Enable server missions (0 = no, 1 = yes)
-A3W_missionsDifficulty = 0;        // Missions difficulty (0 = normal, 1 = hard)
-A3W_missionFarAiDrawLines = 1;     // Draw small red lines on the map from mission markers to individual units & vehicles which are further away than 75m from the objective (0 = no, 1 = yes)
-A3W_missionsQuantity = 6;          // Number of missions running at the same time (0 to 6)
-A3W_heliPatrolMissions = 1;        // Enable missions involving flying helicopters piloted by AI (0 = no, 1 = yes)
-A3W_underWaterMissions = 1;        // Enable underwater missions which require diving gear (0 = no, 1 = yes)
-A3W_mainMissionDelay = 10*60;      // Time in seconds between Main Missions
-A3W_mainMissionTimeout = 60*60;    // Time in seconds that a Main Mission will run for, unless completed
-A3W_sideMissionDelay = 5*60;       // Time in seconds between Side Missions
-A3W_sideMissionTimeout = 45*60;    // Time in seconds that a Side Mission will run for, unless completed
-A3W_moneyMissionDelay = 15*60;     // Time in seconds between Money Missions
-A3W_moneyMissionTimeout = 60*60;   // Time in seconds that a Money Mission will run for, unless completed
+A3W_serverMissions = 1;            	// Enable server missions (0 = no, 1 = yes)
+A3W_missionsDifficulty = 0;        	// Missions difficulty (0 = normal, 1 = hard)
+A3W_missionFarAiDrawLines = 1;     	// Draw small red lines on the map from mission markers to individual units & vehicles which are further away than 75m from the objective (0 = no, 1 = yes)
+A3W_missionsQuantity = 8;          	// Number of missions running at the same time (0 to 6)
+A3W_heliPatrolMissions = 1;        	// Enable missions involving flying helicopters piloted by AI (0 = no, 1 = yes)
+A3W_underWaterMissions = 1;        	// Enable underwater missions which require diving gear (0 = no, 1 = yes)
+A3W_mainMissionDelay = 10*60;      	// Time in seconds between Main Missions
+A3W_mainMissionTimeout = 60*60;    	// Time in seconds that a Main Mission will run for, unless completed
+A3W_sideMissionDelay = 5*60;       	// Time in seconds between Side Missions
+A3W_sideMissionTimeout = 45*60;    	// Time in seconds that a Side Mission will run for, unless completed
+A3W_moneyMissionDelay = 15*60;     	// Time in seconds between Money Missions
+A3W_moneyMissionTimeout = 60*60;   	// Time in seconds that a Money Mission will run for, unless completed
+A3W_extraMissionDelay = 10*60;     	// Time in seconds between Extra Missions
+A3W_extraMissionTimeout = 45*60;   	// Time in seconds that a Extra Mission will run for, unless completed
+A3W_patrolMissionDelay = 30*60;    	// Time in seconds between Patrol Missions
+A3W_patrolMissionTimeout = 30*60;  	// Time in seconds that a Patrol Mission will run for, unless completed
+A3W_bountyMissionDelay = 15*60;		// Time in seconds between Bounty Missions
+A3W_bountyMissionTimeout = 30*60;	// Time in seconds before Bounty Mission Ends and survivor gets rewarded.

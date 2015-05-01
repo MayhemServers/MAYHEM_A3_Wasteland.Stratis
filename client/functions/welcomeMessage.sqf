@@ -57,3 +57,5 @@ waitUntil {ctrlCommitted _control};
 
 _control ctrlShow false;
 _control ctrlCommit 0;
+
+uiNamespace setVariable ["BIS_fnc_guiMessage_status", false];

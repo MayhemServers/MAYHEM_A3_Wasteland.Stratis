@@ -54,6 +54,9 @@ updateTerritoryMarkers = "territory\client\updateTerritoryMarkers.sqf" call mf_c
 vehicleSideCfg = "client\functions\vehicleSideCfg.sqf" call mf_compile;
 weaponDisassembledEvent = "client\functions\weaponDisassembledEvent.sqf" call mf_compile;
 
+//Custom Compiles
+fn_rewardLoyalty = "client\functions\fn_rewardLoyalty.sqf" call mf_compile;
+
 // Player details and actions
 loadPlayerMenu = "client\systems\playerMenu\init.sqf" call mf_compile;
 playerSpawn = "client\functions\playerSpawn.sqf" call mf_compile;
@@ -68,6 +71,9 @@ spawnRandom = "client\functions\spawnRandom.sqf" call mf_compile;
 // placeSpawnBeacon = "client\systems\playerMenu\placeSpawnBeacon.sqf" call mf_compile;
 // refuelVehicle = "client\systems\playerMenu\refuel.sqf" call mf_compile;
 // repairVehicle = "client\systems\playerMenu\repair.sqf" call mf_compile;
+
+//AJ Functions
+fn_cameracheck = "addons\cameracheck\cameracheck.sqf" call mf_compile;
 
 // Sync client with server time
 timeSync = "client\functions\clientTimeSync.sqf" call mf_compile;

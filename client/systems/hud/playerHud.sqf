@@ -11,6 +11,7 @@
 #define hud_vehicle_idc 3601
 #define hud_activity_icon_idc 3602
 #define hud_activity_textbox_idc 3603
+#define hud_server_idc 3604
 
 scriptName "playerHud";
 
@@ -107,6 +108,12 @@ while {true} do
 	_hudVehicle = _ui displayCtrl hud_vehicle_idc;
 	_hudActivityIcon = _ui displayCtrl hud_activity_icon_idc;
 	_hudActivityTextbox = _ui displayCtrl hud_activity_textbox_idc;
+	_hudServerTextbox = _ui displayCtrl hud_server_idc;
+	
+	//_serverString = format ["<t color='#A0FFFFFF'>Server: MAYHEM Wasteland Altis</t>"];
+	//_serverString = format ["%1<br/><t color='#A0FFFFFF'>Teamspeak: mayhem.tserverhq.com<br/>Website: Auzgaming.Enjin.com</t>",_serverString];
+	//_hudServerTextbox ctrlSetStructuredText parseText _serverString;
+	//_hudServerTextbox ctrlCommit 0;
 
 	//Calculate Health 0 - 100
 	_health = ((1 - damage player) * 100) max 0;
@@ -165,7 +172,8 @@ while {true} do
 
 	if (isStreamFriendlyUIEnabled) then
 	{
-		_tempString = format ["<t color='#A0FFFFFF'>A3Wasteland %1<br/>www.a3wasteland.com</t>", getText (configFile >> "CfgWorlds" >> worldName >> "description")];
+		_tempString = format ["<t color='#A0FFFFFF'>MAYHEM A3Wasteland 1<br/>Auzgaming.Enjin.com</t>", getText (configFile >> "CfgWorlds" >> worldName >> "description")];
+		//_tempString = format ["<t color='#A0FFFFFF'>A3Wasteland %1<br/>www.a3wasteland.com</t>", getText (configFile >> "CfgWorlds" >> worldName >> "description")];
 		_yOffset = 0.28;
 
 		_hudVehicle ctrlSetStructuredText parseText _tempString;
