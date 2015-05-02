@@ -1986,7 +1986,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=257;
+		items=256;
 		class Item0
 		{
 			position[]={4484.2783,113.72083,6777.0884};
@@ -4859,21 +4859,6 @@ class Mission
 		};		
 		class Item254
 		{
-			position[]={4380,0,3819};
-			azimut=177;
-			special="NONE";
-			id=407;
-			side="EMPTY";
-			vehicle="O_Truck_03_ammo_F";
-			leader=1;
-			lock="LOCKED";
-			skill=0.60000002;
-			text="Service_Truck_1";
-			init="this call A3W_fnc_setupResupplyTruck";
-			description="Service";
-		};
-		class Item255
-		{
 			position[]={1867,0,5568};
 			azimut=192;
 			special="NONE";
@@ -4887,7 +4872,7 @@ class Mission
 			init="this call A3W_fnc_setupSellTruck";
 			description="Sell Vehicle";
 		};		
-		class Item256
+		class Item255
 		{
 			position[]={2604,0,620};
 			azimut=315;
