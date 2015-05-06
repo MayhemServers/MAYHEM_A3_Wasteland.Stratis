@@ -79,6 +79,18 @@ else
 	diag_log format["[WARNING] A3W configuration file '%1\main_config.sqf' was not found. Using default settings!", externalConfigFolder];
 	diag_log "[WARNING] For more information go to http://forums.a3wasteland.com/";
 };
+// load external map additions
+if (loadFile (externalConfigFolder + "\Custom Map Additions\Auzeditor.sqf") != "") then
+{
+	//call compile preprocessFileLineNumbers (externalConfigFolder + "\Custom Map Additions\Auzeditor.sqf");
+	execVM (externalConfigFolder + "\Custom Map Additions\Auzeditor.sqf");
+}
+else
+{
+	diag_log format["[WARNING] A3W configuration file '%1\Custom Map Additions\Auzeditor.sqf' was not found. Additions not added!", externalConfigFolder];
+	diag_log "[WARNING] For more information go to http://forums.a3wasteland.com/";
+};
+
 
 // compileFinal & broadcast client config variables
 {
