@@ -16,13 +16,24 @@ _MaxSpawnbeacons = ceil (["A3W_maxSpawnBeacons", 5] call getPublicVar);
 
 private ["_hasFailed", "_success","_pos","_uid","_beacon","_beacons","_ownedBeacons"];
 
-_beacons = [];
-{
-	if (_x getVariable ["ownerUID",""] == getPlayerUID player) then
+
+_donatorLevel = player getVariable ["donatorLevel", 0];
+_MaxSpawnBeacons = switch (_donatorLevel) do
 	{
-		_beacons pushBack _x;
+		case 1: {_MaxSpawnBeacons = _MaxSpawnBeacons + 2;};
+		case 2: {_MaxSpawnBeacons = _MaxSpawnBeacons + 2;};
+		case 3: {_MaxSpawnBeacons = _MaxSpawnBeacons + 3;};
+		case 4: {_MaxSpawnBeacons = _MaxSpawnBeacons + 5;};
+		default {_MaxSpawnBeacons};
 	};
-} forEach pvar_spawn_beacons;
+
+_beacons = []; 
+{ 
+	if (_x getVariable ["ownerUID",""] == getPlayerUID player) then 
+	{ 
+		_beacons pushBack _x; 
+	}; 
+} forEach pvar_spawn_beacons; 
 
 _ownedBeacons = count _beacons;
 
