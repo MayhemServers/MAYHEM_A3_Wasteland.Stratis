@@ -41,12 +41,10 @@ switch (toLower _type) do
 				[] spawn fn_saveWarchestMoney;
 			};
 
-			_player setVariable ["cmoney", (_player getVariable ["cmoney", 0]) - _amount, true]; // temp fix for negative wallet glitch
-
-			/*if (!local _player) then
+			if (!local _player) then
 			{
 				_player setVariable ["cmoney", (_player getVariable ["cmoney", 0]) - _amount, false]; // do NOT set to true, this is only a temporary server-side change
-			};*/
+			};
 
 			_result = _amount;
 		};
@@ -80,12 +78,10 @@ switch (toLower _type) do
 				_crate spawn fn_manualObjectSave;
 			};
 
-			_player setVariable ["cmoney", (_player getVariable ["cmoney", 0]) - _amount, true]; // temp fix for negative wallet glitch
-
-			/*if (!local _player) then
+			if (!local _player) then
 			{
 				_player setVariable ["cmoney", (_player getVariable ["cmoney", 0]) - _amount, false]; // do NOT set to true, this is only a temporary server-side change
-			};*/
+			};
 
 			_result = _amount;
 		};
@@ -113,16 +109,27 @@ switch (toLower _type) do
 
 			_newBalance = _balance + _amount;
 
-			if (_newBalance > ["A3W_atmMaxBalance", 1000000] call getPublicVar) exitWith {}; // account would exceed or has reached max balance
+			//Donator Bank Cap Adjustment
+			_maxBalance = ["A3W_atmMaxBalance", 1000000] call getPublicVar;
+
+			_donatorLevel = _player getVariable ["donatorLevel", 0];
+			_maxBalance = switch (_donatorLevel) do
+				{
+					case 1: {_maxBalance + 0;};
+					case 2: {_maxBalance + 1000000;};
+					case 3: {_maxBalance + 1000000;};
+					case 4: {_maxBalance + 2000000;};
+					default {_maxBalance};
+				};
+
+			if (_newBalance > _maxBalance) exitWith {}; // account would exceed or has reached max balance
 
 			_player setVariable ["bmoney", _newBalance, true];
 
-			_player setVariable ["cmoney", _wallet - _amount, true]; // temp fix for negative wallet glitch
-
-			/*if (!local _player) then
+			if (!local _player) then
 			{
 				_player setVariable ["cmoney", _wallet - _amount, false]; // do NOT set to true, this is only a temporary server-side change
-			};*/
+			};
 
 			if (["A3W_playerSaving"] call isConfigOn) then
 			{
