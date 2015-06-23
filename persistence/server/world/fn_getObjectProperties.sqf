@@ -69,7 +69,6 @@ _variables pushBack ["R3F_LOG_disabled", _R3F_LOG_disabled]; // Publish to DB, n
 };
 
 _r3fSide = _obj getVariable "R3F_Side";
-
 if (!isNil "_r3fSide") then
 {
 	_variables pushBack ["R3F_Side", str _r3fSide];
