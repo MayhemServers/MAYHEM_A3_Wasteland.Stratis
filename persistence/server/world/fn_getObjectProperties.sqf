@@ -110,6 +110,7 @@ if (isNil "_repairCargo" || {!finite _repairCargo}) then { _repairCargo = 0 };
 	["Direction", _dir],
 	["Damage", _damage],
 	["AllowDamage", _allowDamage],
+	["OwnerUID", _owner],
 	["Variables", _variables],
 
 	["Weapons", _weapons],
